@@ -63,15 +63,38 @@ int main(int argc,char **argv) {
   /****
     PRINT elapsed time in sec and milli secs
   ****/
+   del_sec = (tv_e.tv_sec -tv_s.tv_sec);
+  del_msec = (tv_e.tv_usec -tv_s.tv_usec) / 10000;
+  printf("%1li.%06li for %d elements\n", del_sec, del_msec, NELM );
 
   //  print_lst(lst,n);
   self_check();
   return 0;
 }
 
+
+
 void selection_sort(int list[],int n){
   // fill here
+  int x, y;
+  for(x = 0; x<n; x++)
+  {
+    int indx_min = x;
+    for(y = x; y<n; y++)
+    {
+      if(list[indx_min]>list[y])
+      {
+        indx_min = y;
+      }
+    } 
+    //swap
+    int tmp = list[x];
+    list[x] = list[indx_min];
+    list[indx_min] = tmp;
+  }
+
 }
+
 
 void merge_sort(int list[], int temp[], int n){
   msort_recursive(list, temp, 0, n-1);
