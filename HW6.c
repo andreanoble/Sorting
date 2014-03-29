@@ -15,11 +15,11 @@
 
 #define OK 1
 #define NOK 0
-#define NELM 100		/* default 100 elements */
-#define N 1048576		/* 2^30 or 1 meg elements  */
+#define NELM 100000		/* default 100 elements */
+//#define N 1048576		/* 2^30 or 1 meg elements  */
 //#define N 2097152
 //#define N 4194304
-//#define N 8388608
+#define N 8388608
 //#define N 16777216
 //#define N 33554432
 
@@ -28,6 +28,8 @@ void swap();
 
 void merge_sort();
 void msort_recursive();
+void merge();
+
 
 void int_radix_sort();
 void float_radix_sort();
@@ -54,8 +56,8 @@ int main(int argc,char **argv) {
   //  print_lst(lst,n);
 
   gettimeofday(&tv_s, NULL); 
-  selection_sort(lst,n);
-  //  merge_sort(lst,tmp,n);
+  //  selection_sort(lst,n);
+    merge_sort(lst,tmp,n);
   //  int_radix_sort(lst,tmp,n);
   //  float_radix_sort(lst,tmp,n);
   gettimeofday(&tv_e, NULL); 
@@ -103,6 +105,50 @@ void merge_sort(int list[], int temp[], int n){
 //use recursion
 void msort_recursive(int list[], int temp[], int left, int right){
   // fill here
+  int mid;
+  if (right>left){
+    mid = (right + left)/2;
+    msort_recursive(list, temp, left, mid);
+    msort_recursive(list, temp, mid+1, right);
+    merge(list, temp, mid+1, right);
+  }
+}
+
+void merge(int list[], int temp[], int left, int mid, int right){
+  int i, left_end, num_elements, tmp_pos;
+  left_end =  mid - 1;
+  tmp_pos = left;
+  num_elements = right - left + 1;
+
+  while((left <= left_end) && (mid <= right)){
+    if (list[left] <= list[mid]){
+      temp[tmp_pos] = list[left];
+      tmp_pos++;
+      left_end++;
+    }
+    else{
+      temp[tmp_pos] = list[mid];
+      tmp_pos++;
+      mid++;
+    }
+  }
+
+  while (left <= left_end){
+    temp[tmp_pos] = list[left];
+    left++;
+    tmp_pos++;
+  }
+
+  while ( mid <= right){
+    temp[tmp_pos] = list[mid];
+    mid++;
+    tmp_pos++;
+  }
+
+  for ( i =0; i  <= num_elements; i++){
+    list[right] = temp[ right];
+    right = right--;
+  }
 }
 
 //fix the bucket size to 256. run 4 passes where each pass processes 8 bits
