@@ -8,7 +8,7 @@
 
 #define OK 1
 #define NOK 0
-#define NELM 100		/* default 100 elements */
+#define NELM 1000000		/* default 100 elements */
 #define N 1048576		/* 2^30 or 1 meg elements  */
 //#define N 2097152
 //#define N 4194304
@@ -51,15 +51,35 @@ int main(int argc,char **argv) {
   /****
     PRINT elapsed time in sec and milli secs
   ****/
+  del_sec = (tv_e.tv_sec -tv_s.tv_sec);
+  del_msec = (tv_e.tv_usec -tv_s.tv_usec) / 10000;
+  printf("%1li.%06li for %d elements\n", del_sec, del_msec, NELM );
 
-  //  print_lst(lst,n);
+
+
+  //print_lst(lst,n);
   self_check();
   return 0;
 }
 
 void selection_sort(int list[],int n){
-  // fill here
-
+// fill here
+	int x, y;
+	for(x = 0; x<n; x++)
+	{
+		int indx_min = x;
+		for(y = x; y<n; y++)
+		{
+			if(list[indx_min]>list[y])
+			{
+				indx_min = y;
+			}
+		} 
+		//swap
+		int temp = list[x];
+		list[x] = list[indx_min];
+		list[indx_min] = temp;
+	}
 
 }
 
