@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1362354434 source:c:\users\andrea\documents\my programs\inssrt\inssrt.cc
+	<stdlib.h>
+	<string.h>
+
+1362030685 source:c:\users\andrea\documents\my programs\inssrt\sortg.cc
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<limits.h>
+	<iostream>
+	<fstream>
+
