@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1361760044 source:c:\users\andrea\documents\my programs\rmgsrt\sortg.cc
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<limits.h>
+	<iostream>
+	<fstream>
+
+1361830675 source:c:\users\andrea\documents\my programs\rmgsrt\rmgsrt.cc
+	<stdlib.h>
+	<string.h>
+	<iostream>
+	<string>
+

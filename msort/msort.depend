@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1362526675 source:c:\users\andrea\documents\my programs\msort\sortg.cc
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<limits.h>
+	<iostream>
+	<fstream>
+
+1362527569 source:c:\users\andrea\documents\my programs\msort\msort.cc
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

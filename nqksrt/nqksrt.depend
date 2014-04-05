@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1363552360 source:c:\users\andrea\documents\my programs\nqksrt\nqksrt.cc
+	<stdlib.h>
+	<string.h>
+	<iostream>
+	<string>
+
+1363552599 source:c:\users\andrea\documents\my programs\nqksrt\sortg.cc
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<limits.h>
+	<iostream>
+	<fstream>
+
